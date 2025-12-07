@@ -14,6 +14,7 @@ return {
         -- <C-y>     : accept
         -- <C-n/p>   : next/prev item
         -- <C-b/f>   : scroll docs
+        ["<C-CR>"] = { "select_and_accept" },
       },
 
       appearance = {

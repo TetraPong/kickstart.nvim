@@ -31,3 +31,11 @@ map("n", "<Esc>", ":noh<CR>", { desc = "Clear search highlight" })
 -- Quick save
 map("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
+
+-- Commenting lines (<Space>/)
+map("n", "<leader>/", "gcc", { remap = true, desc = "Comment line" })
+map("v", "<leader>/", "gc", { remap = true, desc = "Comment selection" })
+
+-- Commenting lines (Cmd+/)
+-- map("n", "<C-/>", "gcc", { remap = true, desc = "Comment line" })
+-- map("v", "<C-/>", "gc", { remap = true, desc = "Comment selection" })
