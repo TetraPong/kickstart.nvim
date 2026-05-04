@@ -28,6 +28,8 @@ return {
           "gopls",      -- Go
           "pyright",    -- Python (add more as needed)
           "lua_ls",     -- Lua
+          "ts_ls",      -- Typescript/Javascript
+          "eslint"      -- Eslint
         },
         automatic_installation = true,
       })
@@ -122,6 +124,25 @@ return {
             telemetry = { enable = false },
           },
         },
+      })
+
+      -- TypeScript / JavaScript
+      lspconfig.ts_ls.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
+
+      -- ESLint
+      lspconfig.eslint.setup({
+        on_attach = function(client, bufnr)
+          on_attach(client, bufnr)
+          -- Auto-fix ESLint issues on save
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+        capabilities = capabilities,
       })
 
       -- ═══════════════════════════════════════════════════════════
